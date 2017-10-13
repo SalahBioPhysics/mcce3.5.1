@@ -179,7 +179,7 @@ bool runDelphi(SMCCE * mcce_data, int j)
          }
          
 
-         printf("=========== mcce_data->phimap \n");
+         //printf("=========== mcce_data->phimap \n");
          for (std::vector<delphi_real>::const_iterator ii = mcce_data->phimap.begin(); ii != mcce_data->phimap.end(); ++ii){
             std::cout << *ii << ' ';
             //printf("mcce_data->phimap: %f\n", *ii);
@@ -272,7 +272,6 @@ bool conf_energies_delphi(SMCCE * mcce_data)
        * prepare for focusing runs
        */
       if (1 < mcce_data->del_runs) {
-        printf("Salah 1\n");
         mcce_data->bndcon = 3;
       }
 
@@ -348,7 +347,7 @@ bool conf_energies_delphi(SMCCE * mcce_data)
 }
 
 
-bool conf_rxn_delphi(SMCCE * mcce_data,float rxn[], int jjj)
+bool conf_rxn_delphi(SMCCE * mcce_data,float rxn[])
 {
    bool bDelPhiReturn = false;
    char FileName[80];
@@ -405,7 +404,7 @@ bool conf_rxn_delphi(SMCCE * mcce_data,float rxn[], int jjj)
       /*
        * save log and errors in the same file
        */
-      sprintf(FileName,"%s%02d.log","rxnn",jjj);
+      sprintf(FileName,"%s%02d.log","rxnn");
       ofstream logFile(FileName);
       StreamRedirector redirect_cout(cout,logFile.rdbuf());
       StreamRedirector redirect_cerr(cerr,logFile.rdbuf());

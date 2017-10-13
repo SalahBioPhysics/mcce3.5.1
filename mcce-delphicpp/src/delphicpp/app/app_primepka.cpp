@@ -135,7 +135,7 @@ void runDelphi(shared_ptr<SPrime> param)
             
             pSolver.reset();
  
-//            pDataContainer->showMap("showmap_afteritr.dat");
+        //            pDataContainer->showMap("showmap_afteritr.dat");
             
             //********************************************************************************//
             //                                                                                //
@@ -190,7 +190,7 @@ void runDelphi(shared_ptr<SPrime> param)
             
             if (pDataContainer->getKey_constRef<bool>("phiwrt")) pSite->writePhi();
             
-//            pDataContainer->showMap("showmap_aftersite.dat");
+            //pDataContainer->showMap("showmap_aftersite.dat");
             
             /*
              * equivalent to out(frc,file="filename") in the parameter file
@@ -198,7 +198,8 @@ void runDelphi(shared_ptr<SPrime> param)
             if (0 == pSite->prime_grdphiv.size())
             {
                 pSite.reset();
-                pTimer->exit(); pTimer.reset();
+                pTimer->exit(); 
+                pTimer.reset();
             }
             */
             
@@ -209,11 +210,11 @@ void runDelphi(shared_ptr<SPrime> param)
             
             
             
-#ifdef PRIME
-            pSite->clearIO();
-#endif
-            
-            pSite.reset();
+        #ifdef PRIME
+                    pSite->clearIO();
+        #endif
+                    
+                    pSite.reset();
 
             
         }
@@ -238,8 +239,8 @@ void runDelphi(shared_ptr<SPrime> param)
         }
         
         pDataContainer.reset();
-        
-        pTimer->exit(); pTimer.reset();
+        pTimer->exit(); 
+        pTimer.reset();
         
         delete pTester;
         

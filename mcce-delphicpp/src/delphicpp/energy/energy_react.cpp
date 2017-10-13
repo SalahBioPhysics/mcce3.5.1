@@ -218,7 +218,7 @@ void CDelphiEnergy::energy_react(delphi_real& fEnergy_Solvation, delphi_real& fE
 					cout << " Midpoints are out side the cube and delphi cannot determine the molecular surface." << endl;
 					cout << " Please enlarge the gsize or decrease the perfil value." << endl;
 				}
-				cout << " correctad reaction field energy  :               " << setw(8) << right << fEnergy_Solvation << " kt" << endl;
+				cout << " corrected reaction field energy  :               " << setw(8) << right << fEnergy_Solvation << " kt" << endl;
 				cout << " total reaction field energy      :               " << setw(8) << right << (fEnergy_SelfReaction+fEnergy_Solvation) <<" kt" << endl;
 
 				ergr = fEnergy_SelfReaction+fEnergy_Solvation;
@@ -244,26 +244,26 @@ void CDelphiEnergy::energy_react(delphi_real& fEnergy_Solvation, delphi_real& fE
 				ofScrgFile << "       bgp#  atom SC   res#      pos                               scrg           surf energy" << endl;
 
 			}
-/*
-    eBuffz function has removed from C++ DelPhi
-			if(bBuffz){
-				lim_min = 2+ieBuffz.nMin;
-				lim_max = iGrid-1-ieBuffz.nMax;
-			}
- */
+		/*
+		    eBuffz function has removed from C++ DelPhi
+					if(bBuffz){
+						lim_min = 2+ieBuffz.nMin;
+						lim_max = iGrid-1-ieBuffz.nMax;
+					}
+		 */
 			for(i=0;i<iTotalBdyGridNum;i++){
 					ixyz = prgigBndyGrid[i];
 
-/*
-    eBuffz function has removed from C++ DelPhi
-                if(bBuffz){
-						ido = 1;
-						if(optORLT<int>(ixyz,lim_min) || optORGT<int>(ixyz,lim_max)){
-							ido = 0;
-						}
-						if(ido==0) continue;
-					}
-*/
+		/*
+		    eBuffz function has removed from C++ DelPhi
+		                if(bBuffz){
+								ido = 1;
+								if(optORLT<int>(ixyz,lim_min) || optORGT<int>(ixyz,lim_max)){
+									ido = 0;
+								}
+								if(ido==0) continue;
+							}
+		*/
 					fEnergy_Temp1 = schrg[i];
 					spt1 = spot[i]*fEnergy_Temp1*fEPKT/2.0;
 
@@ -299,7 +299,7 @@ void CDelphiEnergy::energy_react(delphi_real& fEnergy_Solvation, delphi_real& fE
 
 	}
  
-// +++++++++++++++++++++ Clean memory occupied by these vectors ++++++++++++++++ //
+	// +++++++++++++++++++++ Clean memory occupied by these vectors ++++++++++++++++ //
    
     vector<delphi_real>().swap(prgfgSurfCrgA_nX);
     vector<delphi_real>().swap(prgfgSurfCrgA_nY);

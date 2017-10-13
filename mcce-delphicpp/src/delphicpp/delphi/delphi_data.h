@@ -117,7 +117,7 @@ class CDelphiData:virtual public IDataContainer
          // equivalent to scale = value in the parameter file
          pddm->fScale = mcce_data->scale;//(mcce_data->scale+0.01*(float)mcce_data->n_retry)/pow(2,mcce_data->del_runs-1);
          if (0.0 >= pddm->fScale || 40.0 <= pddm->fScale) COutofRange_SCALE warning(pddm->fScale);
-          printf("mcce_data->scale: %f\n",pddm->fScale);
+         //printf("mcce_data->scale: %f\n",pddm->fScale);
 
          // equivalent to in(modpdb,file=\"apbs.pqr\",format=pqr) in the parameter file
          pddm->strPdbFile = mcce_data->pdbfile;
@@ -162,7 +162,7 @@ class CDelphiData:virtual public IDataContainer
          if (3 == mcce_data->bndcon)
          {
             // equivalent to in(phi,file="run.phi") in the parameter file
-            printf("Here is the pddm->vctfPhiMap ==============\n");
+            //printf("Here is the pddm->vctfPhiMap ==============\n");
             pddm->vctfPhiMap  = mcce_data->phimap3;
             for (std::vector<delphi_real>::const_iterator ii = pddm->vctfPhiMap.begin(); ii != pddm->vctfPhiMap.end(); ++ii){
               std::cout << *ii << ' ';

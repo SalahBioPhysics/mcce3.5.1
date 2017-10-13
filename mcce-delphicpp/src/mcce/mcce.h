@@ -776,9 +776,10 @@ typedef struct {
     char use_old_delphi;
     int   delphi_start;
     int   delphi_end;
+    char delphi_sys_call_new;
 
 } ENV;
-
+ 
 extern ENV env;
 
 

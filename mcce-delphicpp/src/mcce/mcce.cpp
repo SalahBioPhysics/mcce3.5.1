@@ -112,7 +112,7 @@ void welcome()
    printf("Sept 2016, Added charged ligands to sum_crg.out.\n");
    printf("Oct  2016, Changed Yifan MC pK.out output format to match mfe format.\n");
    printf("Oct  2016, Added step 5 that creates pK.out and sum_crg.out.\n");
-   printf("Jan  2017, Added DelPhi potential map.\n\n");
+   printf("Jan  2017, Added DelPhi potential map.\n");
    printf("Mar  2017, Added DelPhi dielectric map.\n\n");
    fflush(stdout);
 	

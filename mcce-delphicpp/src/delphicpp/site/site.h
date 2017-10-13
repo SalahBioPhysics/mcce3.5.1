@@ -146,9 +146,7 @@ class CSite:public CIO
 
 #ifdef MCCE
       vector<delphi_real> mcce_phiv; // to save phiv produced in site_writeSite()
-      vector<delphi_real> mcce_grdphiv;
-      vector<string>      mcce_atomdes;
-      vector<delphi_real> mcce_crhgv;
+      
 #endif
 
 #ifdef PRIME

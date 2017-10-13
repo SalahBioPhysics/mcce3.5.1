@@ -957,10 +957,17 @@ int get_env()
         }
         else if (strstr(sbuff, "(DELPHI_SYS_CALL)")) {
             str1 = strtok(sbuff, " ");
-            if (str1[0] == 'f' || str1[0] == 'F') {
-                env.delphi_sys_call = 0;
+            if (str1[0] == 't' || str1[0] == 'T') {
+                env.delphi_sys_call = 1;
             }
-            else env.delphi_sys_call = 1;
+            else env.delphi_sys_call = 0;
+        }
+        else if (strstr(sbuff, "(DELPHI_SYS_CALL_NEW)")) {
+            str1 = strtok(sbuff, " ");
+            if (str1[0] == 't' || str1[0] == 'T') {
+                env.delphi_sys_call_new = 1;
+            }
+            else env.delphi_sys_call_new = 0;
         }
         else if (strstr(sbuff, "(ONLY_BACKBONE)")) {
             str1 = strtok(sbuff, " ");

@@ -174,11 +174,11 @@ int main(int argc, char *argv[])
 
     cerr << boolalpha;
 
-#ifdef DEVELOPER
-    cout << fixed << setprecision(7); //cout.precision(15)
-#else
-    cout << fixed << setprecision(3); //cout.precision(7)
-#endif
+    #ifdef DEVELOPER
+        cout << fixed << setprecision(7); //cout.precision(15)
+    #else
+        cout << fixed << setprecision(3); //cout.precision(7)
+    #endif
 
     try
     {
@@ -197,18 +197,18 @@ int main(int argc, char *argv[])
         //---------- a shared_ptr to an object of IDataContainer
         shared_ptr<IDataContainer> pDataContainer( new CDelphiData(argc,argv,pTimer) );
 
-#ifdef DEBUG_DELPHI_SPACE
-        cerr << "\n\033[1;35m" << "---[DEBUG_DELPHI_SPACE] data container is written into file test_delphicpp_atbeginning.dat---\n\n"
-             << "\033[0m";
+        #ifdef DEBUG_DELPHI_SPACE
+            cerr << "\n\033[1;35m" << "---[DEBUG_DELPHI_SPACE] data container is written into file test_delphicpp_atbeginning.dat---\n\n"
+                 << "\033[0m";
 
-        pDataContainer->showMap("test_delphicpp_atbeginning.dat");
-#endif
+            pDataContainer->showMap("test_delphicpp_atbeginning.dat");
+        #endif
 
-#ifdef DEVELOPER
-        cout << "\n\n---------- delphicpp finishes IO in ";
-        pTester->showElapse();
-        cout << "\n\n";
-#endif
+        #ifdef DEVELOPER
+            cout << "\n\n---------- delphicpp finishes IO in ";
+            pTester->showElapse();
+            cout << "\n\n";
+        #endif
 
         //********************************************************************************//
         //                                                                                //
@@ -239,19 +239,19 @@ int main(int argc, char *argv[])
 
         pSpace.reset();
 
-#ifdef DEBUG_DELPHI_SPACE
-        cout   << "---[DEBUG_DELPHI_SPACE] data container is written into file test_delphicpp_aftersurf.dat---\n\n";
+        #ifdef DEBUG_DELPHI_SPACE
+            cout   << "---[DEBUG_DELPHI_SPACE] data container is written into file test_delphicpp_aftersurf.dat---\n\n";
 
-        pDataContainer->showMap("test_delphicpp_aftersurf.dat");
-#endif
+            pDataContainer->showMap("test_delphicpp_aftersurf.dat");
+        #endif
 
-#ifdef DEVELOPER
-        cout << "\n\n---------- delphicpp finishes SPACE class in ";
-        pTester->showElapse();
-        cout << "\n\n";
+        #ifdef DEVELOPER
+            cout << "\n\n---------- delphicpp finishes SPACE class in ";
+            pTester->showElapse();
+            cout << "\n\n";
 
-        cout << endl;
-#endif
+            cout << endl;
+        #endif
 
         if( !(iGaussian==1&&inhomo==0&&logs) )
             cout << " number of atom coordinates read  :" << right << setw(10) << pDataContainer->getKey_constRef<delphi_integer>("natom") << endl;
@@ -283,17 +283,17 @@ int main(int argc, char *argv[])
             //                                                                                //
             //********************************************************************************//
 
-#ifdef DEBUG_DELPHI_SOLVER
-            cerr << "\n\033[1;35m" << "---[DEBUG_DELPHI_SOLVER] data container is read from file test_fromsurf.dat---\n\n" << "\033[0m";
+            #ifdef DEBUG_DELPHI_SOLVER
+                cerr << "\n\033[1;35m" << "---[DEBUG_DELPHI_SOLVER] data container is read from file test_fromsurf.dat---\n\n" << "\033[0m";
 
-            pDataContainer->reset("test_fromsurf.dat");
+                pDataContainer->reset("test_fromsurf.dat");
 
-            cerr << "\n\033[1;35m" << "---[DEBUG_DELPHI_SOLVER] data container is written into file test_delphicpp_beforeitr.dat---\n\n"
-                 << "\033[0m";
+                cerr << "\n\033[1;35m" << "---[DEBUG_DELPHI_SOLVER] data container is written into file test_delphicpp_beforeitr.dat---\n\n"
+                     << "\033[0m";
 
-            pDataContainer->showMap("test_delphicpp_beforeitr.dat");
+                pDataContainer->showMap("test_delphicpp_beforeitr.dat");
 
-#endif // DEBUG_DELPHI_SOLVER
+            #endif // DEBUG_DELPHI_SOLVER
 
             unique_ptr<IAbstractModule> pSolver( new CDelphiFastSOR(pDataContainer,pTimer) );
 
@@ -301,17 +301,17 @@ int main(int argc, char *argv[])
 
             pSolver.reset();
 
-#ifdef DEBUG_DELPHI_SOLVER
-            cout  << "---[DEBUG_DELPHI_SOLVER] data container is written into file test_delphicpp_afteritr.dat---\n\n";
+            #ifdef DEBUG_DELPHI_SOLVER
+                cout  << "---[DEBUG_DELPHI_SOLVER] data container is written into file test_delphicpp_afteritr.dat---\n\n";
 
-            pDataContainer->showMap("test_delphicpp_afteritr.dat");
-#endif // DEBUG_DELPHI_SOLVER
+                pDataContainer->showMap("test_delphicpp_afteritr.dat");
+            #endif // DEBUG_DELPHI_SOLVER
 
-#ifdef DEVELOPER
-            cout << "\n\n---------- delphicpp finishes SOLVER class in ";
-            pTester->showElapse();
-            cout << "\n\n";
-#endif
+            #ifdef DEVELOPER
+                cout << "\n\n---------- delphicpp finishes SOLVER class in ";
+                pTester->showElapse();
+                cout << "\n\n";
+            #endif
 
             //********************************************************************************//
             //                                                                                //
@@ -319,20 +319,20 @@ int main(int argc, char *argv[])
             //                                                                                //
             //********************************************************************************//
 
-#ifdef DEBUG_DELPHI_ENERGY
-            cerr << "\n\033[1;35m" << "---[DEBUG_DELPHI_ENERGY] data container is read from file test_fromsurf.dat "
-                 << "and test_fromsolver.dat---\n\n" << "\033[0m";
+            #ifdef DEBUG_DELPHI_ENERGY
+                cerr << "\n\033[1;35m" << "---[DEBUG_DELPHI_ENERGY] data container is read from file test_fromsurf.dat "
+                     << "and test_fromsolver.dat---\n\n" << "\033[0m";
 
-            pDataContainer->reset("test_fromsurf.dat");
+                pDataContainer->reset("test_fromsurf.dat");
 
-            pDataContainer->reset("test_fromsolver.dat");
+                pDataContainer->reset("test_fromsolver.dat");
 
-            cerr << "\n\033[1;35m" << "---[DEBUG_DELPHI_SOLVER] data container is written into file test_delphicpp_beforeenergy.dat---\n\n"
-                 << "\033[0m";
+                cerr << "\n\033[1;35m" << "---[DEBUG_DELPHI_SOLVER] data container is written into file test_delphicpp_beforeenergy.dat---\n\n"
+                     << "\033[0m";
 
-            pDataContainer->showMap("test_delphicpp_beforeenergy.dat");
+                pDataContainer->showMap("test_delphicpp_beforeenergy.dat");
 
-#endif // DEBUG_DELPHI_ENERGY
+            #endif // DEBUG_DELPHI_ENERGY
 
             unique_ptr<IAbstractModule> pEnergy( new CDelphiEnergy(pDataContainer,pTimer) );
 
@@ -340,18 +340,18 @@ int main(int argc, char *argv[])
 
             pEnergy.reset();
 
-#ifdef DEBUG_DELPHI_ENERGY
-            cerr << "\n\033[1;35m" << "---[DEBUG_DELPHI_ENERGY] data container is written into file test_delphicpp_aftereng.dat---\n\n"
-                 << "\033[0m";
+            #ifdef DEBUG_DELPHI_ENERGY
+                cerr << "\n\033[1;35m" << "---[DEBUG_DELPHI_ENERGY] data container is written into file test_delphicpp_aftereng.dat---\n\n"
+                     << "\033[0m";
 
-            pDataContainer->showMap("test_delphicpp_aftereng.dat");
-#endif // DEBUG_DELPHI_ENERGY
+                pDataContainer->showMap("test_delphicpp_aftereng.dat");
+            #endif // DEBUG_DELPHI_ENERGY
 
-#ifdef DEVELOPER
-            cout << "\n\n---------- delphicpp finishes ENERGY class in ";
-            pTester->showElapse();
-            cout << "\n\n";
-#endif
+            #ifdef DEVELOPER
+                cout << "\n\n---------- delphicpp finishes ENERGY class in ";
+                pTester->showElapse();
+                cout << "\n\n";
+            #endif
 
 
 
@@ -369,21 +369,21 @@ int main(int argc, char *argv[])
                 unique_ptr<IAbstractModule> pSpace( new CDelphiSpace(pDataContainer,pTimer) );
                 pSpace->run();
                 pSpace.reset();
-#ifdef DEBUG_DELPHI_SPACE
-        cout   << "---[DEBUG_DELPHI_SPACE] data container is written into file test_delphicpp_aftersurf.dat---\n\n";
+                #ifdef DEBUG_DELPHI_SPACE
+                    cout   << "---[DEBUG_DELPHI_SPACE] data container is written into file test_delphicpp_aftersurf.dat---\n\n";
 
-        pDataContainer->showMap("test_delphicpp_aftersurf.dat");
-#endif
+                    pDataContainer->showMap("test_delphicpp_aftersurf.dat");
+                #endif
 
                 unique_ptr<IAbstractModule> pSolver( new CDelphiFastSOR(pDataContainer,pTimer) );
                 pSolver->run();
                 pSolver.reset();
 
-#ifdef DEBUG_DELPHI_SOLVER
-            cout << "---[DEBUG_DELPHI_SOLVER] data container is written into file test_delphicpp_afteritr.dat---\n\n";
+                #ifdef DEBUG_DELPHI_SOLVER
+                    cout << "---[DEBUG_DELPHI_SOLVER] data container is written into file test_delphicpp_afteritr.dat---\n\n";
 
-            pDataContainer->showMap("test_delphicpp_afteritr.dat");
-#endif
+                    pDataContainer->showMap("test_delphicpp_afteritr.dat");
+                #endif
                 unique_ptr<IAbstractModule> pEnergy( new CDelphiEnergy(pDataContainer,pTimer) );
                 pEnergy->run();
                 pEnergy.reset();
@@ -398,19 +398,19 @@ int main(int argc, char *argv[])
             //                                                                                //
             //********************************************************************************//
 
-#ifdef DEBUG_DELPHI_SITE
-            cerr << "\n\033[1;35m" << "---[DEBUG_DELPHI_SITE] data container is read from file test_fromsurf.dat, "
-                 << "test_fromsolver.dat and test_fromenergy.dat---\n\n" << "\033[0m";
+            #ifdef DEBUG_DELPHI_SITE
+                cerr << "\n\033[1;35m" << "---[DEBUG_DELPHI_SITE] data container is read from file test_fromsurf.dat, "
+                     << "test_fromsolver.dat and test_fromenergy.dat---\n\n" << "\033[0m";
 
-            pDataContainer->reset("test_fromsurf.dat");
-            pDataContainer->reset("test_fromsolver.dat");
-            pDataContainer->reset("test_fromenergy.dat");
+                pDataContainer->reset("test_fromsurf.dat");
+                pDataContainer->reset("test_fromsolver.dat");
+                pDataContainer->reset("test_fromenergy.dat");
 
-            cerr << "\n\033[1;35m" << "---[DEBUG_DELPHI_SOLVER] data container is written into file test_delphicpp_beforesite.dat---\n\n"
-                 << "\033[0m";
+                cerr << "\n\033[1;35m" << "---[DEBUG_DELPHI_SOLVER] data container is written into file test_delphicpp_beforesite.dat---\n\n"
+                     << "\033[0m";
 
-            pDataContainer->showMap("test_delphicpp_beforesite.dat");
-#endif // DEBUG_DELPHI_SITE
+                pDataContainer->showMap("test_delphicpp_beforesite.dat");
+            #endif // DEBUG_DELPHI_SITE
 
 
             unique_ptr<CSite> pSite( new CSite(pDataContainer,pTimer) );
@@ -427,18 +427,18 @@ int main(int argc, char *argv[])
 
             pSite.reset();
 
-#ifdef DEBUG_DELPHI_SITE
-            cerr << "\n\033[1;35m" << "---[DEBUG_DELPHI_SITE] data container is written into file test_delphicpp_atend.dat---\n\n"
-                 << "\033[0m";
+            #ifdef DEBUG_DELPHI_SITE
+                cerr << "\n\033[1;35m" << "---[DEBUG_DELPHI_SITE] data container is written into file test_delphicpp_atend.dat---\n\n"
+                     << "\033[0m";
 
-            pDataContainer->showMap("test_delphicpp_atend.dat");
-#endif // DEBUG_DELPHI_SITE
+                pDataContainer->showMap("test_delphicpp_atend.dat");
+            #endif // DEBUG_DELPHI_SITE
 
-#ifdef DEVELOPER
-            cout << "\n\n---------- delphicpp finishes SITE class in ";
-            pTester->showElapse();
-            cout << "\n\n";
-#endif
+            #ifdef DEVELOPER
+                        cout << "\n\n---------- delphicpp finishes SITE class in ";
+                        pTester->showElapse();
+                        cout << "\n\n";
+            #endif
 
         }
 

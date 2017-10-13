@@ -179,6 +179,8 @@ f        Use SAS + Coulomb's law for ele interaction        (QUICK_ENERGIES)
 /home/mcce/mcce2.5.1/bin/delphi DelPhi executable           (DELPHI_EXE)
 f        Reassign charge and radii before delphi(if not true then use value in PDB file) (REASSIGN)
 f        Recalculate torsions energy when write out head3.lst (RECALC_TORS)
+f           t uses old delphi as a system call              (DELPHI_SYS_CALL)
+f           t uses new delphi as a system call              (DELPHI_SYS_CALL_NEW)
 
 step 4:
 f        Average the pairwise, "f" uses the smaller         (AVERAGE_PAIRWISE)

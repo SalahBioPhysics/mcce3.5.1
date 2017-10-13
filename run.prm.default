@@ -113,6 +113,8 @@ step 3:
 0.15     Salt                                               (SALT)
 /home/mcce/mcce2.5.1/bin/delphi DelPhi executable           (DELPHI_EXE)
 /home/mcce/mcce2.5.1/bin/apbs APBS executable               (APBS_EXE)
+f           t uses old delphi as a system call              (DELPHI_SYS_CALL)
+f           t uses new delphi as a system call              (DELPHI_SYS_CALL_NEW)
 
 step 4:
 5.0      Big pairwise threshold to make big list            (BIG_PAIRWISE)
